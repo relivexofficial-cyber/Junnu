@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Our Birthday celebrating 💕</title>
+
+  <!-- EXIT BUTTON -->
+<style>
+  .exit-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 999999;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+  }
+
+  .exit-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .exit-btn:active {
+    transform: scale(0.9);
+  }
+</style>
+
+<button class="exit-btn" onclick="exitPage()" aria-label="Exit">
+  ×
+</button>
+
+<style>
+  .more-btn {
+    position: fixed;
+    top: 75px;
+    right: 18px;
+    z-index: 999999;
+
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 25px;
+
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    transition: 0.25s ease;
+  }
+
+  .more-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .more-btn:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<button class="more-btn" onclick="openMore()">
+  More
+</button>
+
+<script>
+  function openMore() {
+    window.location.href = "morereel.html";
+  }
+</script>
+
+<script>
+  function exitPage() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "about:blank";
+    }
+  }
+</script>
+
+  <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255, 255, 255, 0.32),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(255, 105, 180, 0.48),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 30%,
+          rgba(255, 182, 193, 0.45),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #ffb6d9 0%,
+          #ff8fc4 45%,
+          #ff5da8 100%
+        );
+    }
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -5;
+    }
+
+    .glow {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.35;
+
+      animation: glowMove 10s ease-in-out infinite alternate;
+    }
+
+    .glow.one {
+      background: #ffffff;
+      top: -120px;
+      left: -100px;
+    }
+
+    .glow.two {
+      background: #0099ff;
+      right: -150px;
+      top: 25%;
+      animation-delay: 2s;
+    }
+
+    .glow.three {
+      background: #ff168b;
+      bottom: -180px;
+      left: 35%;
+      animation-delay: 4s;
+    }
+
+    @keyframes glowMove {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(50px, -35px) scale(1.25);
+      }
+    }
+
+    /* =========================================================
+       FLOATING EMOJIS
+    ========================================================= */
+
+    .floating {
+      position: fixed;
+      bottom: -80px;
+
+      left: var(--left);
+
+      font-size: var(--size);
+
+      pointer-events: none;
+
+      animation:
+        floatUp var(--duration) linear var(--delay) infinite;
+
+      opacity: 0;
+
+      z-index: -1;
+    }
+
+    @keyframes floatUp {
+
+      0% {
+        transform:
+          translateY(0)
+          translateX(0)
+          rotate(0deg)
+          scale(0.7);
+
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      50% {
+        transform:
+          translateY(-50vh)
+          translateX(35px)
+          rotate(15deg)
+          scale(1);
+      }
+
+      100% {
+        transform:
+          translateY(-115vh)
+          translateX(-30px)
+          rotate(-15deg)
+          scale(0.7);
+
+        opacity: 0;
+      }
+    }
+
+    /* =========================================================
+       MAIN CONTAINER
+    ========================================================= */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+
+      padding: 35px 20px 70px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .header {
+      text-align: center;
+      max-width: 800px;
+
+      animation: headerReveal 1.2s ease forwards;
+    }
+
+    @keyframes headerReveal {
+
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+        filter: blur(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .mini-title {
+      font-size: clamp(12px, 1.5vw, 18px);
+
+      text-transform: uppercase;
+
+      letter-spacing: 5px;
+
+      font-weight: 700;
+
+      color: rgba(255, 255, 255, 0.9);
+
+      text-shadow:
+        0 0 15px rgba(255,255,255,.7);
+    }
+
+    .title {
+      margin-top: 12px;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(42px, 7vw, 82px);
+
+      line-height: 0.95;
+
+      text-shadow:
+        0 0 15px #008cff,
+        0 0 40px rgba(0,130,255,.7);
+
+      color: #fff;
+    }
+
+    .subtitle {
+      margin-top: 18px;
+
+      font-size: clamp(14px, 2vw, 20px);
+
+      line-height: 1.6;
+
+      color: rgba(255,255,255,.95);
+    }
+
+    /* =========================================================
+       REELS GRID
+    ========================================================= */
+
+    .reels-grid {
+
+      width: min(1200px, 100%);
+
+      margin-top: 45px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 25px;
+    }
+
+    /* =========================================================
+       REEL CARD
+    ========================================================= */
+
+    .reel-card {
+
+      position: relative;
+
+      aspect-ratio: 9 / 16;
+
+      border-radius: 25px;
+
+      padding: 7px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #e9f9ff,
+          #52c2ff 30%,
+          #0875d1 65%,
+          #b9efff
+        );
+
+      border: 1px solid rgba(255,255,255,.8);
+
+      box-shadow:
+        0 0 12px rgba(0,150,255,.85),
+        0 0 35px rgba(0,120,255,.55),
+        0 20px 55px rgba(75,0,80,.3);
+
+      cursor: pointer;
+
+      overflow: hidden;
+
+      transform:
+        translateY(0)
+        rotate(var(--rotation));
+
+      transition:
+        transform .55s cubic-bezier(.17,.84,.44,1),
+        box-shadow .5s ease;
+    }
+
+    .reel-card:nth-child(1) {
+      --rotation: -2deg;
+    }
+
+    .reel-card:nth-child(2) {
+      --rotation: 2deg;
+    }
+
+    .reel-card:nth-child(3) {
+      --rotation: -1deg;
+    }
+
+    .reel-card:nth-child(4) {
+      --rotation: 3deg;
+    }
+
+    .reel-card:nth-child(5) {
+      --rotation: 1deg;
+    }
+
+    .reel-card:nth-child(6) {
+      --rotation: -3deg;
+    }
+
+    .reel-card:nth-child(7) {
+      --rotation: 2deg;
+    }
+
+    .reel-card:nth-child(8) {
+      --rotation: -2deg;
+    }
+
+    .reel-card:hover {
+
+      transform:
+        translateY(-15px)
+        rotate(0deg)
+        scale(1.035);
+
+      box-shadow:
+        0 0 20px rgba(0,200,255,1),
+        0 0 55px rgba(0,130,255,.9),
+        0 30px 70px rgba(65,0,90,.4);
+
+      z-index: 10;
+    }
+
+    /* =========================================================
+       REEL PREVIEW
+    ========================================================= */
+
+    .reel-preview {
+
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 19px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          160deg,
+          #ff9ccc,
+          #ff579f
+        );
+    }
+
+    .reel-preview img,
+    .reel-preview video {
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        transform .7s ease,
+        filter .7s ease;
+    }
+
+    .reel-card:hover img,
+    .reel-card:hover video {
+
+      transform: scale(1.08);
+
+      filter: brightness(.78);
+    }
+
+    /* =========================================================
+       DARK OVERLAY
+    ========================================================= */
+
+    .reel-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(15,0,25,.75),
+          rgba(0,0,0,.1),
+          rgba(0,0,0,.3)
+        );
+
+      transition:
+        background .4s ease;
+    }
+
+    .reel-card:hover .reel-overlay {
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(15,0,25,.82),
+          rgba(0,0,0,.2),
+          rgba(0,0,0,.38)
+        );
+    }
+
+    /* =========================================================
+       PLAY BUTTON
+    ========================================================= */
+
+    .play-button {
+
+      width: 70px;
+      height: 70px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        rgba(255,255,255,.9);
+
+      color: #0875d1;
+
+      font-size: 25px;
+
+      padding-left: 4px;
+
+      box-shadow:
+        0 0 0 7px rgba(255,255,255,.15),
+        0 0 35px rgba(0,160,255,.9);
+
+      animation:
+        playPulse 2s ease-in-out infinite;
+
+      transition:
+        transform .35s ease;
+    }
+
+    .reel-card:hover .play-button {
+
+      transform: scale(1.12);
+
+    }
+
+    @keyframes playPulse {
+
+      0%,100% {
+        box-shadow:
+          0 0 0 7px rgba(255,255,255,.15),
+          0 0 25px rgba(0,160,255,.7);
+      }
+
+      50% {
+        box-shadow:
+          0 0 0 13px rgba(255,255,255,.08),
+          0 0 45px rgba(0,160,255,1);
+      }
+    }
+
+    /* =========================================================
+       CARD TEXT
+    ========================================================= */
+
+    .watch-text {
+
+      margin-top: 18px;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      text-shadow:
+        0 2px 10px rgba(0,0,0,.5);
+    }
+
+    .reel-number {
+
+      position: absolute;
+
+      top: 15px;
+      left: 15px;
+
+      padding: 6px 10px;
+
+      border-radius: 50px;
+
+      background:
+        rgba(0,0,0,.3);
+
+      backdrop-filter:
+        blur(10px);
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       SHINE
+    ========================================================= */
+
+    .reel-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      top: -40%;
+      left: -100%;
+
+      width: 55%;
+      height: 180%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.5),
+          transparent
+        );
+
+      transform: rotate(25deg);
+
+      pointer-events: none;
+
+      animation:
+        shine 6s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+
+      0% {
+        left: -100%;
+      }
+
+      30%,100% {
+        left: 160%;
+      }
+    }
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 1000;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      padding: 20px;
+
+      background:
+        rgba(18,0,20,.82);
+
+      backdrop-filter:
+        blur(20px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        opacity .4s ease,
+        visibility .4s ease;
+    }
+
+    .modal.active {
+
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    /* =========================================================
+       VIDEO CONTAINER
+    ========================================================= */
+
+    .video-container {
+
+      position: relative;
+
+      width: min(430px, 92vw);
+
+      height: min(760px, 90vh);
+
+      border-radius: 25px;
+
+      padding: 6px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #e9f9ff,
+          #46baff,
+          #0875d1
+        );
+
+      box-shadow:
+        0 0 25px rgba(0,180,255,1),
+        0 0 70px rgba(0,110,255,.75),
+        0 30px 100px rgba(0,0,0,.6);
+
+      transform:
+        scale(.8)
+        translateY(40px);
+
+      transition:
+        transform .5s cubic-bezier(.17,.84,.44,1);
+    }
+
+    .modal.active .video-container {
+
+      transform:
+        scale(1)
+        translateY(0);
+    }
+
+    .video-container video {
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 20px;
+
+      display: block;
+
+      background: #111;
+    }
+
+    /* =========================================================
+       CLOSE BUTTON
+    ========================================================= */
+
+    .close-button {
+
+      position: absolute;
+
+      top: -18px;
+      right: -18px;
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      border: 2px solid rgba(255,255,255,.8);
+
+      background:
+        linear-gradient(
+          145deg,
+          #70d4ff,
+          #0875d1
+        );
+
+      color: white;
+
+      font-size: 25px;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow:
+        0 0 25px rgba(0,160,255,.9);
+
+      z-index: 20;
+
+      transition:
+        transform .3s ease;
+    }
+
+    .close-button:hover {
+
+      transform:
+        rotate(90deg)
+        scale(1.1);
+    }
+
+    /* =========================================================
+       BOTTOM MESSAGE
+    ========================================================= */
+
+    .bottom-message {
+
+      margin-top: 45px;
+
+      text-align: center;
+
+      font-size: clamp(14px,2vw,19px);
+
+      letter-spacing: 1px;
+
+      color: rgba(255,255,255,.95);
+
+      text-shadow:
+        0 0 15px rgba(0,130,255,.8);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .reels-grid {
+
+        grid-template-columns:
+          repeat(3, minmax(0,1fr));
+
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .page {
+
+        padding:
+          25px 14px 60px;
+      }
+
+      .reels-grid {
+
+        grid-template-columns:
+          repeat(2, minmax(0,1fr));
+
+        gap: 16px;
+
+        margin-top: 30px;
+      }
+
+      .reel-card {
+
+        border-radius: 18px;
+
+        padding: 5px;
+      }
+
+      .reel-preview {
+
+        border-radius: 14px;
+      }
+
+      .play-button {
+
+        width: 54px;
+        height: 54px;
+
+        font-size: 19px;
+      }
+
+      .watch-text {
+
+        margin-top: 12px;
+
+        font-size: 12px;
+      }
+
+      .reel-number {
+
+        top: 10px;
+        left: 10px;
+
+        font-size: 9px;
+      }
+
+      .video-container {
+
+        width: min(390px, 92vw);
+
+        height: min(700px, 85vh);
+      }
+
+      .close-button {
+
+        top: -14px;
+        right: -8px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 380px) {
+
+      .reels-grid {
+
+        gap: 12px;
+      }
+
+      .play-button {
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 16px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =======================================================
+       BACKGROUND
+  ======================================================== -->
+
+  <div class="background">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+
+  </div>
+
+
+  <!-- =======================================================
+       FLOATING EMOJIS
+  ======================================================== -->
+
+  <div
+    class="floating"
+    style="--left:5%;--size:30px;--duration:9s;--delay:0s;">
+    💗
+  </div>
+
+  <div
+    class="floating"
+    style="--left:15%;--size:25px;--duration:11s;--delay:2s;">
+    ✨
+  </div>
+
+  <div
+    class="floating"
+    style="--left:27%;--size:32px;--duration:10s;--delay:4s;">
+    💕
+  </div>
+
+  <div
+    class="floating"
+    style="--left:40%;--size:26px;--duration:12s;--delay:1s;">
+    💖
+  </div>
+
+  <div
+    class="floating"
+    style="--left:53%;--size:34px;--duration:9s;--delay:5s;">
+    ✨
+  </div>
+
+  <div
+    class="floating"
+    style="--left:66%;--size:28px;--duration:11s;--delay:3s;">
+    🥰
+  </div>
+
+  <div
+    class="floating"
+    style="--left:79%;--size:32px;--duration:10s;--delay:6s;">
+    💗
+  </div>
+
+  <div
+    class="floating"
+    style="--left:92%;--size:26px;--duration:12s;--delay:2s;">
+    ✨
+  </div>
+
+
+  <!-- =======================================================
+       MAIN PAGE
+  ======================================================== -->
+
+  <main class="page">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <div class="mini-title">
+        ✨ Today Celebrate ✨
+      </div>
+
+      <h1 class="title">
+        Today is all about celebrating you<br>
+        Just Enjoy 💕
+      </h1>
+
+      <p class="subtitle">
+        Just smile and let life surprise you <br>
+        Enjoy every moment... 🎬💗
+      </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         REELS GRID
+    ====================================================== -->
+
+    <section class="reels-grid">
+
+
+      <!-- REEL 01 -->
+
+      <article
+        class="reel-card"
+        data-video="reel1.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <!--
+            CHANGE THIS IMAGE
+            TO YOUR REEL THUMBNAIL
+          -->
+
+          <video src="reel1.mp4" muted playsinline preload="metadata"></video>
+
+          
+
+          <div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💕
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 02 -->
+
+      <article
+        class="reel-card"
+        data-video="reel2.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel2.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💗
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 03 -->
+
+      <article
+        class="reel-card"
+        data-video="reel3.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel3.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💖
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 04 -->
+
+      <article
+        class="reel-card"
+        data-video="reel4.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel4.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH ✨
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 05 -->
+
+      <article
+        class="reel-card"
+        data-video="reel5.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel5.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 🥰
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 06 -->
+
+      <article
+        class="reel-card"
+        data-video="reel6.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel6.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💕
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 07 -->
+
+      <article
+        class="reel-card"
+        data-video="reel7.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel7.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💗
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REEL 08 -->
+
+      <article
+        class="reel-card"
+        data-video="reel8.mp4"
+        onclick="openReel(this)"
+      >
+
+        <div class="reel-preview">
+
+          <video src="reel8.mp4" muted playsinline preload="metadata"></video>
+<div class="reel-overlay">
+
+            <div class="play-button">
+              ▶
+            </div>
+
+            <div class="watch-text">
+              TAP TO WATCH 💖
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <div class="bottom-message">
+      Every reel holds a little piece of our story 💕
+    </div>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       VIDEO MODAL
+  ======================================================== -->
+
+  <div
+    class="modal"
+    id="reelModal"
+    onclick="closeOutside(event)"
+  >
+
+    <div class="video-container">
+
+      <button
+        class="close-button"
+        onclick="closeReel()"
+        aria-label="Close reel"
+      >
+        ×
+      </button>
+
+      <video
+        id="reelVideo"
+        controls
+        playsinline
+        preload="metadata"
+      ></video>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    const modal =
+      document.getElementById("reelModal");
+
+    const video =
+      document.getElementById("reelVideo");
+
+
+    /* =====================================================
+       OPEN REEL
+    ====================================================== */
+
+    function openReel(card) {
+
+      const videoSource =
+        card.getAttribute("data-video");
+
+      if (!videoSource) {
+        return;
+      }
+
+      video.src = videoSource;
+
+      modal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+      video.play().catch(() => {
+        // Browser autoplay restrictions
+        // Controls remain available.
+      });
+    }
+
+
+    /* =====================================================
+       CLOSE REEL
+    ====================================================== */
+
+    function closeReel() {
+
+      video.pause();
+
+      video.removeAttribute("src");
+
+      video.load();
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow = "";
+    }
+
+
+    /* =====================================================
+       CLOSE BY CLICKING OUTSIDE
+    ====================================================== */
+
+    function closeOutside(event) {
+
+      if (event.target === modal) {
+
+        closeReel();
+
+      }
+    }
+
+
+    /* =====================================================
+       ESC KEY
+    ====================================================== */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeReel();
+
+        }
+
+      }
+    );
+
+  </script>
+<!-- =========================================================
+     UNIVERSAL FLOATING MUSIC PLAYER
+     Paste this complete code before </body>
+========================================================= -->
+
+
+<style>
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+.music-player {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 68px;
+    height: 68px;
+
+    z-index: 999999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    user-select: none;
+
+}
+
+
+/* =========================================================
+   ROTATING OUTER RING
+========================================================= */
+
+.music-ring {
+
+    position: absolute;
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    border: 2px dashed rgba(255,255,255,.85);
+
+    animation:
+        musicRotate 5s linear infinite;
+
+}
+
+
+/* =========================================================
+   PINK GLOW
+========================================================= */
+
+.music-glow {
+
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #ff8fbd 0%,
+            #ff4f91 45%,
+            #d92e70 100%
+        );
+
+    box-shadow:
+
+        0 0 15px
+        rgba(255,75,145,.65),
+
+        0 0 35px
+        rgba(255,75,145,.40);
+
+    animation:
+        musicPulse 1.8s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   MUSIC ICON
+========================================================= */
+
+.music-icon {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,.18);
+
+    border:
+        1px solid
+        rgba(255,255,255,.65);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    color: white;
+
+    font-size: 21px;
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(255,255,255,.15);
+
+}
+
+
+/* =========================================================
+   FLOATING MUSIC NOTES
+========================================================= */
+
+.music-note {
+
+    position: absolute;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+}
+
+
+.note-1 {
+
+    animation:
+        noteOne 2.3s ease-out infinite;
+
+}
+
+
+.note-2 {
+
+    animation:
+        noteTwo 2.6s ease-out infinite .5s;
+
+}
+
+
+.note-3 {
+
+    animation:
+        noteThree 2.4s ease-out infinite 1s;
+
+}
+
+
+.note-4 {
+
+    animation:
+        noteFour 2.8s ease-out infinite 1.5s;
+
+}
+
+
+/* =========================================================
+   ROTATING RING
+========================================================= */
+
+@keyframes musicRotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   GLOW PULSE
+========================================================= */
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(.94);
+
+        box-shadow:
+
+            0 0 15px
+            rgba(255,75,145,.55),
+
+            0 0 30px
+            rgba(255,75,145,.25);
+
+    }
+
+
+    50% {
+
+        transform:
+            scale(1.05);
+
+        box-shadow:
+
+            0 0 22px
+            rgba(255,100,165,.8),
+
+            0 0 45px
+            rgba(255,75,145,.5);
+
+    }
+
+}
+
+
+/* =========================================================
+   NOTE 1
+========================================================= */
+
+@keyframes noteOne {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 8px)
+            scale(.5)
+            rotate(0deg);
+
+    }
+
+
+    25% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-28px, -55px)
+            scale(1)
+            rotate(-15deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   NOTE 2
+========================================================= */
+
+@keyframes noteTwo {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 8px)
+            scale(.5);
+
+    }
+
+
+    25% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(32px, -62px)
+            scale(1.15)
+            rotate(15deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   NOTE 3
+========================================================= */
+
+@keyframes noteThree {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 5px)
+            scale(.5);
+
+    }
+
+
+    25% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(40px, -38px)
+            scale(.9)
+            rotate(20deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   NOTE 4
+========================================================= */
+
+@keyframes noteFour {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 5px)
+            scale(.5);
+
+    }
+
+
+    25% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-40px, -42px)
+            scale(1)
+            rotate(-20deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MUSIC OFF STATE
+========================================================= */
+
+.music-player.music-off
+.music-ring {
+
+    animation-play-state:
+        paused;
+
+    opacity: .55;
+
+}
+
+
+.music-player.music-off
+.music-glow {
+
+    animation: none;
+
+    opacity: .65;
+
+    filter:
+        grayscale(.25);
+
+}
+
+
+.music-player.music-off
+.music-note {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   CLICK EFFECT
+========================================================= */
+
+.music-player:active {
+
+    transform:
+        scale(.90);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .music-player {
+
+        right: 14px;
+        bottom: 14px;
+
+        width: 62px;
+        height: 62px;
+
+    }
+
+
+    .music-ring {
+
+        width: 62px;
+        height: 62px;
+
+    }
+
+
+    .music-glow {
+
+        width: 53px;
+        height: 53px;
+
+    }
+
+
+    .music-icon {
+
+        width: 39px;
+        height: 39px;
+
+        font-size: 19px;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================================
+     HIDDEN AUDIO PLAYER
+
+     OPTION 1:
+     Agar MP3/song hai:
+     
+     music.mp3 use karo.
+
+     OPTION 2:
+     Agar MP3 nahi hai:
+     
+     video.mp4 use karo.
+
+     Video screen par NAHI dikhega.
+     Sirf uski audio chalegi.
+========================================================= -->
+
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto">
+
+
+    <!-- ===============================================
+         MP3 AVAILABLE HO TO YE USE KARO
+         
+         Is line ko uncomment karo:
+         
+         <source
+             src="music.mp3"
+             type="audio/mpeg">
+    ================================================ -->
+
+
+    <!-- ===============================================
+         MP3 NAHI HAI TO video.mp4 USE KARO
+         
+         Sirf audio chalegi.
+         Video page par nahi dikhega.
+    ================================================ -->
+
+    <source
+        src="video.mp4"
+        type="video/mp4">
+
+
+</audio>
+
+
+
+<!-- =========================================================
+     FLOATING MUSIC BUTTON
+========================================================= -->
+
+<div
+    class="music-player"
+    id="musicPlayer"
+    role="button"
+    tabindex="0"
+    aria-label="Music On Off">
+
+
+    <!-- ROTATING RING -->
+
+    <div
+        class="music-ring">
+    </div>
+
+
+    <!-- PINK GLOW -->
+
+    <div
+        class="music-glow">
+    </div>
+
+
+    <!-- CENTER ICON -->
+
+    <div
+        class="music-icon"
+        id="musicIcon">
+
+        🎵
+
+    </div>
+
+
+    <!-- FLOATING NOTES -->
+
+    <span
+        class="music-note note-1">
+
+        ♪
+
+    </span>
+
+
+    <span
+        class="music-note note-2">
+
+        ♫
+
+    </span>
+
+
+    <span
+        class="music-note note-3">
+
+        ♪
+
+    </span>
+
+
+    <span
+        class="music-note note-4">
+
+        ♬
+
+    </span>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   UNIVERSAL MUSIC SYSTEM
+========================================================= */
+
+(function () {
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const music =
+        document.getElementById(
+            "backgroundMusic"
+        );
+
+
+    const player =
+        document.getElementById(
+            "musicPlayer"
+        );
+
+
+    const icon =
+        document.getElementById(
+            "musicIcon"
+        );
+
+
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
+
+    let musicStarted = false;
+
+
+    /*
+       User ne manually OFF kiya hai
+       ya music ON hai.
+    */
+
+    let userMusicEnabled = true;
+
+
+    /*
+       Volume:
+       0.0 = mute
+       1.0 = full
+
+       0.65 = 65%
+    */
+
+    music.volume = 0.65;
+
+
+
+    /* =====================================================
+       UPDATE BUTTON
+    ===================================================== */
+
+    function updateUI() {
+
+
+        if (!music.paused) {
+
+
+            /*
+               MUSIC ON
+            */
+
+            icon.textContent = "🎵";
+
+
+            player.classList.remove(
+                "music-off"
+            );
+
+
+        } else {
+
+
+            /*
+               MUSIC OFF
+            */
+
+            icon.textContent = "🔇";
+
+
+            player.classList.add(
+                "music-off"
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       PLAY MUSIC
+    ===================================================== */
+
+    async function playMusic() {
+
+
+        /*
+           User ne manually music OFF kiya
+           ho to play nahi karna.
+        */
+
+        if (!userMusicEnabled) {
+
+            return;
+
+        }
+
+
+        try {
+
+
+            music.muted = false;
+
+
+            await music.play();
+
+
+            musicStarted = true;
+
+
+            updateUI();
+
+
+        }
+
+
+        catch (error) {
+
+
+            /*
+               Browser autoplay block kar sakta hai.
+
+               First user interaction par
+               music start ho jayega.
+            */
+
+            updateUI();
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       PAUSE MUSIC BECAUSE VIDEO STARTED
+    ===================================================== */
+
+    function stopMusicForVideo() {
+
+
+        if (!music.paused) {
+
+            music.pause();
+
+        }
+
+
+        updateUI();
+
+    }
+
+
+
+    /* =====================================================
+       CHECK WHETHER ANY VIDEO IS PLAYING
+    ===================================================== */
+
+    function isAnyVideoPlaying() {
+
+
+        const videos =
+            document.querySelectorAll(
+                "video"
+            );
+
+
+        for (
+            let i = 0;
+            i < videos.length;
+            i++
+        ) {
+
+
+            const video =
+                videos[i];
+
+
+            if (
+                !video.paused &&
+                !video.ended
+            ) {
+
+                return true;
+
+            }
+
+        }
+
+
+        return false;
+
+    }
+
+
+
+    /* =====================================================
+       VIDEO PAUSE / END
+       → MUSIC RESUME
+    ===================================================== */
+
+    function resumeMusicAfterVideo() {
+
+
+        /*
+           User ne music manually OFF
+           kiya tha.
+        */
+
+        if (!userMusicEnabled) {
+
+            return;
+
+        }
+
+
+        /*
+           Agar koi doosra video abhi bhi
+           chal raha hai to music start
+           nahi karna.
+        */
+
+        if (
+            isAnyVideoPlaying()
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+           Music wapas start.
+        */
+
+        playMusic();
+
+    }
+
+
+
+    /* =====================================================
+       MUSIC BUTTON
+       ON / OFF
+    ===================================================== */
+
+    async function toggleMusic() {
+
+
+        if (!music.paused) {
+
+
+            /*
+               ==========================================
+               MANUAL OFF
+               ==========================================
+            */
+
+            userMusicEnabled =
+                false;
+
+
+            music.pause();
+
+
+            updateUI();
+
+
+        } else {
+
+
+            /*
+               ==========================================
+               MANUAL ON
+               ==========================================
+            */
+
+            userMusicEnabled =
+                true;
+
+
+            await playMusic();
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       BUTTON CLICK
+    ===================================================== */
+
+    player.addEventListener(
+        "click",
+        toggleMusic
+    );
+
+
+
+    /* =====================================================
+       KEYBOARD SUPPORT
+    ===================================================== */
+
+    player.addEventListener(
+        "keydown",
+        function (event) {
+
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+
+                event.preventDefault();
+
+
+                toggleMusic();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PAGE OPEN → AUTOPLAY
+    ===================================================== */
+
+    window.addEventListener(
+        "load",
+        function () {
+
+
+            setTimeout(
+                playMusic,
+                400
+            );
+
+
+        }
+    );
+
+
+
+    /* =====================================================
+       AUTOPLAY FALLBACK
+    ===================================================== */
+
+    function firstInteraction() {
+
+
+        /*
+           Agar autoplay browser ne block
+           kar diya ho.
+        */
+
+        if (
+            !musicStarted &&
+            userMusicEnabled
+        ) {
+
+
+            playMusic();
+
+        }
+
+    }
+
+
+
+    /*
+       First click
+    */
+
+    document.addEventListener(
+        "click",
+        firstInteraction,
+        {
+            once: true
+        }
+    );
+
+
+
+    /*
+       First touch
+    */
+
+    document.addEventListener(
+        "touchstart",
+        firstInteraction,
+        {
+            once: true,
+            passive: true
+        }
+    );
+
+
+
+    /* =====================================================
+       MUSIC EVENTS
+    ===================================================== */
+
+    music.addEventListener(
+        "play",
+        updateUI
+    );
+
+
+    music.addEventListener(
+        "pause",
+        updateUI
+    );
+
+
+
+    /* =====================================================
+       VIDEO SYSTEM
+    ===================================================== */
+
+    function setupVideo(video) {
+
+
+        /*
+           ===============================================
+           VIDEO PLAY
+           ===============================================
+
+           Video start
+              ↓
+           Music OFF
+        */
+
+        video.addEventListener(
+            "play",
+            function () {
+
+
+                stopMusicForVideo();
+
+
+            }
+        );
+
+
+
+        /*
+           ===============================================
+           VIDEO PAUSE
+           ===============================================
+
+           Video pause
+              ↓
+           Check other videos
+              ↓
+           Music ON
+        */
+
+        video.addEventListener(
+            "pause",
+            function () {
+
+
+                resumeMusicAfterVideo();
+
+
+            }
+        );
+
+
+
+        /*
+           ===============================================
+           VIDEO END
+           ===============================================
+
+           Video end
+              ↓
+           Music ON
+        */
+
+        video.addEventListener(
+            "ended",
+            function () {
+
+
+                resumeMusicAfterVideo();
+
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       EXISTING VIDEOS
+    ===================================================== */
+
+    const videos =
+        document.querySelectorAll(
+            "video"
+        );
+
+
+    videos.forEach(
+        function (video) {
+
+            setupVideo(video);
+
+        }
+    );
+
+
+
+    /* =====================================================
+       DYNAMIC VIDEOS
+
+       Agar JavaScript se baad mein
+       koi video create hota hai,
+       tab bhi system automatically
+       usko detect karega.
+    ===================================================== */
+
+    const observer =
+        new MutationObserver(
+            function (mutations) {
+
+
+                mutations.forEach(
+                    function (mutation) {
+
+
+                        mutation.addedNodes.forEach(
+                            function (node) {
+
+
+                                /*
+                                   Direct VIDEO
+                                */
+
+                                if (
+                                    node.nodeType === 1 &&
+                                    node.tagName ===
+                                    "VIDEO"
+                                ) {
+
+
+                                    setupVideo(
+                                        node
+                                    );
+
+                                }
+
+
+
+                                /*
+                                   VIDEO ke andar
+                                   ya kisi container
+                                   ke andar videos
+                                */
+
+                                if (
+                                    node.nodeType === 1 &&
+                                    node.querySelectorAll
+                                ) {
+
+
+                                    const newVideos =
+                                        node.querySelectorAll(
+                                            "video"
+                                        );
+
+
+                                    newVideos.forEach(
+                                        function (
+                                            video
+                                        ) {
+
+
+                                            setupVideo(
+                                                video
+                                            );
+
+                                        }
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    observer.observe(
+        document.body,
+        {
+            childList: true,
+            subtree: true
+        }
+    );
+
+
+
+    /* =====================================================
+       INITIAL UI
+    ===================================================== */
+
+    updateUI();
+
+
+})();
+
+</script>
+</body>
+</html>
