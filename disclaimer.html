@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer</title>
+  <!-- EXIT BUTTON -->
+<style>
+  .exit-btn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 999999;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+  }
+
+  .exit-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .exit-btn:active {
+    transform: scale(0.9);
+  }
+</style>
+
+<button class="exit-btn" onclick="exitPage()" aria-label="Exit">
+  ×
+</button>
+
+<script>
+  function exitPage() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "about:blank";
+    }
+  }
+</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffdce8);
+    }
+    .disclaimer {
+      width: 100%;
+      max-width: 420px;
+      padding: 30px 24px;
+      text-align: center;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(214,51,108,.15);
+      border-radius: 24px;
+      box-shadow: 0 15px 45px rgba(190,60,100,.18);
+      animation: show .8s ease;
+    }
+    .icon { font-size: 38px; margin-bottom: 12px; }
+    h1 { color: #c72f63; font-size: 26px; margin-bottom: 18px; }
+    p { color: #555; font-size: 15px; line-height: 1.8; }
+    .ending { margin-top: 18px; color: #c72f63; font-weight: 600; }
+    @keyframes show {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="disclaimer">
+    <div class="icon">💗</div>
+    <h1>Disclaimer</h1>
+    <p>Ye webpage maine sirf tumhe birthday wish karne ke liye banaya hai. Iske peeche mera koi aur intention nahi hai.</p>
+    <p>Mujhe bas tumhe ek thoda sa different aur special tareeke se birthday wish karna tha.</p>
+    <p>Tumhe ye achha lage ya na lage, that's completely your choice. Main ise aaj hi delete kar dunga.</p>
+    <p>Aur ek baat clear kar doon — maine tumhari koi personal image AI ko provide nahi ki hai.</p>
+    <p class="ending">Bas ek birthday wish thi. Nothing more. ❤️</p>
+  </div>
+</body>
+</html>

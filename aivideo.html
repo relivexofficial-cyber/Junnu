@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Video</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    #ffd6e8 0%,
+                    #f7a8c8 30%,
+                    #e86a9c 65%,
+                    #c93672 100%
+                );
+
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           VIDEO SECTION
+        ========================================= */
+
+        .video-section {
+
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            overflow: hidden;
+
+
+            /*
+                Premium pink background
+                video ke around visible rahega
+            */
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255,255,255,.35) 0%,
+                    rgba(255,182,210,.2) 25%,
+                    transparent 55%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #ffb6d5,
+                    #ed77a8,
+                    #d84b83
+                );
+        }
+
+
+
+        /* =========================================
+           SOFT BACKGROUND GLOW
+        ========================================= */
+
+        .video-section::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.32),
+                    transparent 70%
+                );
+
+            filter: blur(60px);
+
+            pointer-events: none;
+        }
+
+
+
+        /* =========================================
+           VIDEO WRAPPER
+        ========================================= */
+
+        .video-wrapper {
+
+            position: relative;
+
+            width: 100%;
+
+            height: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 2;
+        }
+
+
+
+        /* =========================================
+           VIDEO
+        ========================================= */
+
+        .intro-video {
+
+            display: block;
+
+            /*
+                Width screen ke according
+            */
+
+            width: 100%;
+
+            /*
+                Height automatic rahegi
+                isliye aspect ratio preserve hoga
+            */
+
+            height: auto;
+
+
+            /*
+                IMPORTANT:
+
+                contain = complete video visible
+
+                crop nahi hogi
+            */
+
+            object-fit: contain;
+
+
+            /*
+                Video ko screen ke andar rakhega
+            */
+
+            max-width: 100%;
+
+            max-height: 82vh;
+            max-height: 82svh;
+
+
+            /*
+                Video ke corners
+            */
+
+            border-radius: 18px;
+
+
+            /*
+                Premium shadow
+            */
+
+            box-shadow:
+
+                0 25px 70px
+                rgba(102, 10, 50, .35),
+
+                0 5px 25px
+                rgba(255,255,255,.18);
+
+
+            background: transparent;
+        }
+
+
+
+        /* =========================================
+           DESKTOP
+        ========================================= */
+
+        .desktop-video {
+            display: block;
+        }
+
+
+        .mobile-video {
+            display: none;
+        }
+
+
+
+        /* =========================================
+           VIDEO BUTTONS REMOVE
+        ========================================= */
+
+        /*
+            Controls attribute use nahi kiya gaya hai.
+
+            Isliye:
+            Play
+            Pause
+            Volume
+            Fullscreen
+            Progress bar
+
+            kuch bhi video ke upar nahi dikhega.
+        */
+
+
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-panel {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-play-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+        }
+
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .birthday-button {
+
+            position: relative;
+
+            z-index: 5;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 28px;
+
+            padding:
+                16px 32px;
+
+            min-width: 240px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ff4f91,
+                    #e62f75
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.55);
+
+            box-shadow:
+
+                0 12px 35px
+                rgba(148, 20, 75, .35);
+
+            transition:
+
+                transform .3s ease,
+
+                box-shadow .3s ease;
+        }
+
+
+        .birthday-button:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.03);
+
+            box-shadow:
+
+                0 18px 45px
+                rgba(148, 20, 75, .45);
+        }
+
+
+        .birthday-button:active {
+
+            transform:
+                scale(.97);
+        }
+
+
+
+        /* =========================================
+           CONTENT BELOW VIDEO
+        ========================================= */
+
+        .after-video {
+
+            min-height: 100vh;
+
+            padding: 80px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #fff0f7,
+                    #ffd6e8
+                );
+
+            color: #7b1d48;
+        }
+
+
+        .after-video-content {
+
+            max-width: 850px;
+        }
+
+
+        .after-video h1 {
+
+            font-size:
+                clamp(40px, 7vw, 90px);
+
+            margin-bottom: 20px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #c62e70,
+                    #ef5590
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        .after-video p {
+
+            font-size:
+                clamp(16px, 2vw, 21px);
+
+            line-height: 1.7;
+
+            color: #8c4162;
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+
+            .video-section {
+
+                min-height: 100svh;
+
+                padding:
+                    18px 12px 25px;
+
+                justify-content: center;
+            }
+
+
+            .desktop-video {
+
+                display: none;
+            }
+
+
+            .mobile-video {
+
+                display: block;
+            }
+
+
+            .intro-video {
+
+                width: 100%;
+
+                height: auto;
+
+                max-width: 100%;
+
+                max-height:
+                    78svh;
+
+                /*
+                    Complete vertical video
+                */
+
+                object-fit: contain;
+
+                border-radius: 14px;
+
+                box-shadow:
+
+                    0 18px 50px
+                    rgba(120, 10, 55, .35);
+            }
+
+
+            .birthday-button {
+
+                width:
+                    min(90%, 330px);
+
+                margin-top: 22px;
+
+                padding:
+                    15px 20px;
+
+                font-size: 14px;
+            }
+
+
+            .video-section::before {
+
+                width: 350px;
+
+                height: 350px;
+
+                filter:
+                    blur(45px);
+            }
+        }
+
+
+
+        /* =========================================
+           SMALL PHONE
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+
+            .video-section {
+
+                padding:
+                    12px 10px 20px;
+            }
+
+
+            .intro-video {
+
+                max-height:
+                    76svh;
+
+                border-radius:
+                    12px;
+            }
+
+
+            .birthday-button {
+
+                min-width:
+                    215px;
+
+                padding:
+                    14px 18px;
+
+                font-size:
+                    13px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         VIDEO SECTION
+    ================================================== -->
+
+    <section class="video-section">
+
+
+        <div class="video-wrapper">
+
+
+            <!-- ==========================================
+                 DESKTOP HORIZONTAL VIDEO
+            =========================================== -->
+
+            <video
+                id="desktopVideo"
+                class="intro-video desktop-video"
+                autoplay
+                muted
+                playsinline
+                preload="auto">
+
+                <source
+                    src="YOUR_HORIZONTAL_VIDEO_LINK_HERE.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+
+            <!-- ==========================================
+                 MOBILE VERTICAL VIDEO
+            =========================================== -->
+
+            <video
+                id="mobileVideo"
+                class="intro-video mobile-video"
+                autoplay
+                muted
+                playsinline
+                preload="auto">
+
+                <source
+                    src="YOUR_VERTICAL_VIDEO_LINK_HERE.mp4"
+                    type="video/mp4">
+
+            </video>
+
+
+        </div>
+
+
+
+        <!-- ==========================================
+             BIRTHDAY BUTTON
+        =========================================== -->
+
+        <a
+            href="birthday.html"
+            class="birthday-button">
+
+            🎂 Your Welcome ✨
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONTENT BELOW VIDEO
+    ================================================== -->
+
+    <section class="after-video">
+
+        <div class="after-video-content">
+
+            <h1>
+                Welcome ❤️
+            </h1>
+
+            <p>
+                Your special birthday story begins here...
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <script>
+
+
+        /* =========================================
+           VIDEO SELECT
+        ========================================= */
+
+        const desktopVideo =
+            document.getElementById(
+                "desktopVideo"
+            );
+
+
+        const mobileVideo =
+            document.getElementById(
+                "mobileVideo"
+            );
+
+
+        function getActiveVideo() {
+
+            if (
+                window.innerWidth <= 768
+            ) {
+
+                return mobileVideo;
+
+            }
+
+            return desktopVideo;
+
+        }
+
+
+
+        /* =========================================
+           AUTOPLAY
+        ========================================= */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                const video =
+                    getActiveVideo();
+
+
+                video.muted = true;
+
+
+                video.play().catch(
+                    () => {
+
+                        console.log(
+                            "Browser autoplay blocked."
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =========================================
+           IMPORTANT:
+
+           PAGE SCROLL ALLOWED
+
+           VIDEO CONTINUES PLAYING
+
+           User video ke neeche scroll
+           kar sakta hai.
+        ========================================= */
+
+
+        /*
+            Video ko pause nahi karna.
+
+            Isliye scroll event par
+            koi pause() nahi hai.
+        */
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                /*
+                    Video background mein
+                    continue chalegi.
+                */
+
+            }
+        );
+
+
+    </script>
+
+</body>
+</html>

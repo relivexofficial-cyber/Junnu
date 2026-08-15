@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secret Entry 💗</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #d88ca8;
+            --pink-dark: #c97998;
+            --soft-pink: #f6d8e2;
+            --white: #fff;
+            --text: #4d2936;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            background: #f7dce5;
+        }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .page {
+            width: 100%;
+            height: 100vh;
+
+            display: grid;
+            grid-template-columns: 58% 42%;
+
+            transition: 1s ease;
+        }
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .left {
+            position: relative;
+
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #ffffff 0%,
+                    #f7faf8 65%,
+                    #edf4f0 100%
+                );
+        }
+
+        /* =========================
+           PHOTO AREA
+        ========================= */
+
+        .photo-frame {
+            width: min(420px, 48vw);
+            height: min(550px, 75vh);
+
+            position: relative;
+
+            border-radius: 50%;
+
+            background: #edf3f1;
+
+            border: 10px solid white;
+
+            box-shadow:
+                0 15px 45px rgba(80, 40, 55, 0.15),
+                inset 0 0 0 3px #ead4dc;
+
+            overflow: visible;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 3;
+        }
+
+        /*
+        =====================================
+        PHOTO PLACEHOLDER
+
+        Yahan apni image laga sakte ho.
+
+        Example:
+
+        <img src="your-photo.jpg">
+
+        =====================================
+        */
+
+       .photo-placeholder {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+        .photo-placeholder .heart-icon {
+            font-size: 70px;
+
+            opacity: .45;
+
+            margin-bottom: 15px;
+        }
+
+        .photo-placeholder strong {
+            font-size: 18px;
+
+            letter-spacing: 3px;
+        }
+
+        .photo-placeholder span {
+            margin-top: 7px;
+
+            font-size: 12px;
+
+            opacity: .65;
+        }
+
+        /*
+        =====================================
+        HEART BORDER
+        =====================================
+        */
+
+        .heart-ring {
+            position: absolute;
+
+            inset: -34px;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+        .heart-ring span {
+            position: absolute;
+
+            color: #e989a5;
+
+            font-size: 23px;
+
+            text-shadow:
+                0 2px 4px
+                rgba(160, 60, 90, .15);
+        }
+
+        .heart-ring span:nth-child(1) {
+            top: 1%;
+            left: 44%;
+        }
+
+        .heart-ring span:nth-child(2) {
+            top: 3%;
+            left: 55%;
+        }
+
+        .heart-ring span:nth-child(3) {
+            top: 8%;
+            left: 66%;
+        }
+
+        .heart-ring span:nth-child(4) {
+            top: 18%;
+            right: 8%;
+        }
+
+        .heart-ring span:nth-child(5) {
+            top: 32%;
+            right: 1%;
+        }
+
+        .heart-ring span:nth-child(6) {
+            top: 47%;
+            right: -1%;
+        }
+
+        .heart-ring span:nth-child(7) {
+            bottom: 33%;
+            right: 1%;
+        }
+
+        .heart-ring span:nth-child(8) {
+            bottom: 18%;
+            right: 8%;
+        }
+
+        .heart-ring span:nth-child(9) {
+            bottom: 7%;
+            right: 22%;
+        }
+
+        .heart-ring span:nth-child(10) {
+            bottom: 0%;
+            left: 45%;
+        }
+
+        .heart-ring span:nth-child(11) {
+            bottom: 6%;
+            left: 29%;
+        }
+
+        .heart-ring span:nth-child(12) {
+            bottom: 18%;
+            left: 12%;
+        }
+
+        .heart-ring span:nth-child(13) {
+            bottom: 34%;
+            left: 1%;
+        }
+
+        .heart-ring span:nth-child(14) {
+            top: 48%;
+            left: -1%;
+        }
+
+        .heart-ring span:nth-child(15) {
+            top: 32%;
+            left: 1%;
+        }
+
+        .heart-ring span:nth-child(16) {
+            top: 18%;
+            left: 8%;
+        }
+
+        .heart-ring span:nth-child(17) {
+            top: 8%;
+            left: 22%;
+        }
+
+        .heart-ring span:nth-child(18) {
+            top: 3%;
+            left: 33%;
+        }
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .star {
+            position: absolute;
+
+            color: #d94277;
+
+            font-size: 31px;
+
+            z-index: 2;
+
+            animation:
+                floatStar 4s ease-in-out infinite;
+        }
+
+        .star.s1 {
+            top: 14%;
+            left: 18%;
+        }
+
+        .star.s2 {
+            top: 9%;
+            right: 8%;
+        }
+
+        .star.s3 {
+            top: 45%;
+            right: 5%;
+        }
+
+        .star.s4 {
+            bottom: 18%;
+            left: 18%;
+        }
+
+        .star.s5 {
+            bottom: 13%;
+            right: 8%;
+        }
+
+        .star.s6 {
+            top: 7%;
+            left: 49%;
+        }
+
+        @keyframes floatStar {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(8deg);
+            }
+        }
+
+        /* =========================
+           RIGHT SIDE
+        ========================= */
+
+        .right {
+            height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #db94ae,
+                    #d184a0
+                );
+        }
+
+        .right::before {
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.07);
+
+            top: -210px;
+            right: -180px;
+        }
+
+        .right::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.06);
+
+            bottom: -180px;
+            left: -180px;
+        }
+
+        /* =========================
+           PASSCODE BOX
+        ========================= */
+
+        .login {
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            position: relative;
+
+            z-index: 4;
+        }
+
+        .login h1 {
+            color: white;
+
+            font-size:
+                clamp(27px, 3vw, 38px);
+
+            font-weight: 700;
+
+            margin-bottom: 24px;
+
+            text-shadow:
+                0 3px 8px
+                rgba(80, 30, 50, .12);
+        }
+
+        /* =========================
+           FOUR BOXES
+        ========================= */
+
+        .digits {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-bottom: 27px;
+        }
+
+        .digit {
+            width: 62px;
+            height: 65px;
+
+            border:
+                3px solid
+                rgba(255,255,255,.85);
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            font-size: 29px;
+
+            font-weight: bold;
+
+            background:
+                rgba(255,255,255,.08);
+
+            transition: .2s ease;
+        }
+
+        .digit.active {
+            background: white;
+
+            color: #c86f8e;
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+                0 7px 18px
+                rgba(90,30,50,.12);
+        }
+
+        /* =========================
+           KEYPAD
+        ========================= */
+
+        .keypad {
+            width: 315px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+        }
+
+        .key {
+            width: 82px;
+            height: 72px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.94);
+
+            color: #2d2025;
+
+            font-size: 29px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 7px 16px
+                rgba(70,25,45,.12);
+
+            transition:
+                .12s ease;
+        }
+
+        .key:hover {
+            transform: scale(1.06);
+
+            background: white;
+
+            box-shadow:
+                0 10px 22px
+                rgba(70,25,45,.18);
+        }
+
+        .key:active {
+            transform: scale(.88);
+        }
+
+        .special {
+            color: #c45c7e;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            min-height: 22px;
+
+            margin-top: 17px;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           SHAKE
+        ========================= */
+
+        .shake {
+            animation:
+                shake .45s ease;
+        }
+
+        @keyframes shake {
+            0%,100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-12px);
+            }
+
+            40% {
+                transform: translateX(12px);
+            }
+
+            60% {
+                transform: translateX(-8px);
+            }
+
+            80% {
+                transform: translateX(8px);
+            }
+        }
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        .unlocking .left {
+            animation:
+                leftExit 1s forwards;
+        }
+
+        .unlocking .right {
+            animation:
+                rightExit 1s forwards;
+        }
+
+        @keyframes leftExit {
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rightExit {
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 850px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .page {
+                min-height: 100vh;
+
+                height: auto;
+
+                grid-template-columns: 1fr;
+            }
+
+            .left {
+                height: 47vh;
+
+                min-height: 350px;
+            }
+
+            .right {
+                height: 53vh;
+
+                min-height: 440px;
+            }
+
+            .photo-frame {
+                width: 245px;
+                height: 315px;
+            }
+
+            .heart-ring {
+                inset: -25px;
+            }
+
+            .heart-ring span {
+                font-size: 18px;
+            }
+
+            .star {
+                font-size: 23px;
+            }
+
+            .login {
+                padding: 20px;
+            }
+
+            .login h1 {
+                font-size: 25px;
+
+                margin-bottom: 18px;
+            }
+
+            .digits {
+                gap: 10px;
+
+                margin-bottom: 20px;
+            }
+
+            .digit {
+                width: 50px;
+                height: 52px;
+
+                font-size: 23px;
+
+                border-width: 2px;
+            }
+
+            .keypad {
+                width: 270px;
+
+                gap: 10px;
+            }
+
+            .key {
+                width: 72px;
+                height: 60px;
+
+                font-size: 25px;
+            }
+        }
+
+        @media(max-width: 380px) {
+
+            .left {
+                min-height: 320px;
+            }
+
+            .right {
+                min-height: 420px;
+            }
+
+            .photo-frame {
+                width: 210px;
+                height: 270px;
+            }
+
+            .keypad {
+                width: 240px;
+            }
+
+            .key {
+                width: 65px;
+                height: 55px;
+            }
+        }
+
+        /* =========================================
+   WRONG PASSCODE VIDEO SCREEN
+========================================= */
+/* =========================================
+   WRONG PASSCODE VIDEO OVERLAY
+========================================= */
+
+/* =========================================
+   WRONG VIDEO OVERLAY
+   ACTUAL PAGE = BLURRED
+========================================= */
+
+.wrong-video-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+}
+
+
+/* =========================================
+   ACTUAL PAGE BLUR
+========================================= */
+
+body.video-playing .page {
+    visibility: visible;
+
+    filter: blur(14px);
+
+    transform: scale(1.03);
+
+    transition:
+        filter 0.5s ease,
+        transform 0.5s ease;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   VIDEO SCREEN
+========================================= */
+
+.wrong-video-screen.show {
+    display: flex;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   VIDEO FRAME
+========================================= */
+
+.wrong-passcode-video {
+
+    width: min(700px, 82vw);
+
+    height: min(520px, 72vh);
+
+    object-fit: contain;
+
+    background: #111;
+
+    border-radius: 26px;
+
+    border: 5px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.15),
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        0 0 45px rgba(0, 0, 0, 0.25);
+
+    transform: scale(0.88);
+
+    opacity: 0;
+
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        opacity 0.4s ease;
+}
+
+
+/* =========================================
+   VIDEO ENTER ANIMATION
+========================================= */
+
+.wrong-video-screen.show
+.wrong-passcode-video {
+
+    transform: scale(1);
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .wrong-video-screen {
+        padding: 18px;
+    }
+
+    .wrong-passcode-video {
+
+        width: 92vw;
+
+        height: auto;
+
+        max-height: 70vh;
+
+        object-fit: contain;
+
+        border-radius: 22px;
+
+        border-width: 4px;
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+/* =========================================
+   SMALL PHONE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .wrong-video-screen {
+        padding: 14px;
+    }
+
+    .wrong-passcode-video {
+
+        width: 94vw;
+
+        max-height: 65vh;
+
+        border-radius: 18px;
+
+        border-width: 3px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <!-- =========================================
+     WRONG PASSCODE VIDEO
+========================================= -->
+
+<div id="wrongVideoScreen" class="wrong-video-screen">
+
+    <video
+        id="wrongPasscodeVideo"
+        class="wrong-passcode-video"
+        playsinline
+        preload="auto"
+    >
+        <source
+            src="wrong-passcode.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support video.
+    </video>
+
+</div>
+
+<div class="page" id="page">
+
+    <!-- =================================
+         LEFT
+    ================================== -->
+
+    <section class="left">
+
+        <div class="star s1">★</div>
+        <div class="star s2">★</div>
+        <div class="star s3">★</div>
+        <div class="star s4">★</div>
+        <div class="star s5">★</div>
+        <div class="star s6">★</div>
+
+
+        <div class="photo-frame">
+
+            <!-- HEART BORDER -->
+
+            <div class="heart-ring">
+
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+
+            </div>
+
+
+            <!-- =========================
+                 BLANK PHOTO
+            ========================== -->
+<!-- PHOTO AREA -->
+<div class="photo-placeholder">
+    <!-- Yahan apni image lagana -->
+    <img src="photo.png" alt="Photo">
+</div>
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         RIGHT
+    ================================== -->
+
+    <section class="right">
+
+        <div class="login" id="login">
+
+            <h1>
+                Enter a passcode
+            </h1>
+
+
+            <!-- FOUR DIGIT BOXES -->
+
+            <div class="digits">
+
+                <div class="digit"></div>
+                <div class="digit"></div>
+                <div class="digit"></div>
+                <div class="digit"></div>
+
+            </div>
+
+
+            <!-- KEYPAD -->
+
+            <div class="keypad">
+
+                <button class="key" data-number="1">
+                    1
+                </button>
+
+                <button class="key" data-number="2">
+                    2
+                </button>
+
+                <button class="key" data-number="3">
+                    3
+                </button>
+
+
+                <button class="key" data-number="4">
+                    4
+                </button>
+
+                <button class="key" data-number="5">
+                    5
+                </button>
+
+                <button class="key" data-number="6">
+                    6
+                </button>
+
+
+                <button class="key" data-number="7">
+                    7
+                </button>
+
+                <button class="key" data-number="8">
+                    8
+                </button>
+
+                <button class="key" data-number="9">
+                    9
+                </button>
+
+
+                <button class="key special" id="clear">
+                    *
+                </button>
+
+                <button class="key" data-number="0">
+                    0
+                </button>
+
+                <button class="key special" id="delete">
+                    #
+                </button>
+
+            </div>
+
+
+            <div
+                class="message"
+                id="message"
+            ></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+    /* =====================================
+       YOUR PASSCODE
+       
+       Yahan 4 digit password set karo.
+       Example: 2006
+    ====================================== */
+
+    const CORRECT_PASSCODE = "9922";
+
+
+    let enteredCode = "";
+
+
+    const digits =
+        document.querySelectorAll(".digit");
+
+    const keys =
+        document.querySelectorAll("[data-number]");
+
+    const clear =
+        document.getElementById("clear");
+
+    const deleteBtn =
+        document.getElementById("delete");
+
+    const message =
+        document.getElementById("message");
+
+    const login =
+        document.getElementById("login");
+
+    const page =
+        document.getElementById("page");
+
+
+    /* =====================================
+       UPDATE DIGIT BOXES
+    ====================================== */
+
+    function updateDisplay() {
+
+        digits.forEach((box, index) => {
+
+            if (index < enteredCode.length) {
+
+                box.textContent = "●";
+
+                box.classList.add("active");
+
+            } else {
+
+                box.textContent = "";
+
+                box.classList.remove("active");
+            }
+
+        });
+    }
+
+
+    /* =====================================
+       NUMBER BUTTONS
+    ====================================== */
+
+    keys.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            if (enteredCode.length >= 4) {
+                return;
+            }
+
+            enteredCode +=
+                button.dataset.number;
+
+            message.textContent = "";
+
+            updateDisplay();
+
+
+            if (enteredCode.length === 4) {
+
+                checkPassword();
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================
+       DELETE
+    ====================================== */
+
+    deleteBtn.addEventListener(
+        "click",
+        () => {
+
+            enteredCode =
+                enteredCode.slice(0, -1);
+
+            message.textContent = "";
+
+            updateDisplay();
+
+        }
+    );
+
+
+    /* =====================================
+       CLEAR
+    ====================================== */
+
+    clear.addEventListener(
+        "click",
+        () => {
+
+            enteredCode = "";
+
+            message.textContent = "";
+
+            updateDisplay();
+
+        }
+    );
+
+
+    /* =====================================
+       CHECK PASSWORD
+    ====================================== */
+
+    /* =====================================
+   WRONG PASSCODE VIDEO
+===================================== */
+
+const wrongVideoScreen =
+    document.getElementById(
+        "wrongVideoScreen"
+    );
+
+const wrongPasscodeVideo =
+    document.getElementById(
+        "wrongPasscodeVideo"
+    );
+
+
+/* =====================================
+   CHECK PASSWORD
+===================================== */
+
+function checkPassword() {
+
+    /* ==============================
+       CORRECT PASSWORD
+    ============================== */
+
+    if (
+        enteredCode ===
+        CORRECT_PASSCODE
+    ) {
+
+        message.textContent =
+            "✨ Access granted...";
+
+        page.classList.add(
+            "unlocking"
+        );
+
+
+        /*
+        Correct password ke baad
+        next webpage open hogi.
+        */
+
+        setTimeout(() => {
+
+            window.location.href =
+                "aivideo.html";
+
+        }, 1000);
+
+
+        return;
+    }
+
+
+    /* ==============================
+       WRONG PASSWORD
+    ============================== */
+
+    message.textContent =
+        "💗 Hmm... that's not the password";
+
+
+    /*
+    Password clear
+    */
+
+    enteredCode = "";
+
+    updateDisplay();
+
+
+    /*
+    Wrong password animation
+    */
+
+    login.classList.remove(
+        "shake"
+    );
+
+    void login.offsetWidth;
+
+    login.classList.add(
+        "shake"
+    );
+
+
+    /*
+    400ms ke baad video start
+    */
+
+    setTimeout(() => {
+
+        playWrongPasswordVideo();
+
+    }, 450);
+
+}
+
+
+/* =====================================
+   PLAY WRONG PASSWORD VIDEO
+===================================== */
+
+function playWrongPasswordVideo() {
+
+    /*
+    Page temporarily hide
+    */
+
+    document.body.classList.add(
+        "video-playing"
+    );
+
+
+    /*
+    Video ko beginning se start karo
+    */
+
+    wrongPasscodeVideo.currentTime = 0;
+
+
+    /*
+    Video screen show
+    */
+
+    wrongVideoScreen.style.display =
+        "flex";
+
+
+    /*
+    Browser ko display update
+    karne ka time
+    */
+
+    requestAnimationFrame(() => {
+
+        wrongVideoScreen.classList.add(
+            "show"
+        );
+
+    });
+
+
+    /*
+    Video play
+    */
+
+    const playPromise =
+        wrongPasscodeVideo.play();
+
+
+    if (playPromise !== undefined) {
+
+        playPromise.catch(error => {
+
+            console.log(
+                "Video autoplay blocked:",
+                error
+            );
+
+        });
+
+    }
+
+
+    /*
+    IMPORTANT:
+    8 seconds ke baad
+    passcode screen wapas
+    */
+
+    setTimeout(() => {
+
+        closeWrongVideo();
+
+    }, 8000);
+
+}
+
+
+/* =====================================
+   CLOSE VIDEO
+===================================== */
+
+function closeWrongVideo() {
+
+    wrongVideoScreen.classList.remove(
+        "show"
+    );
+
+
+    /*
+    Video stop
+    */
+
+    wrongPasscodeVideo.pause();
+
+    wrongPasscodeVideo.currentTime = 0;
+
+
+    /*
+    Thoda fade-out hone do
+    */
+
+    setTimeout(() => {
+
+        wrongVideoScreen.style.display =
+            "none";
+
+        document.body.classList.remove(
+            "video-playing"
+        );
+
+
+        /*
+        Passcode screen ready
+        */
+
+        message.textContent = "";
+
+    }, 400);
+
+}
+
+
+    /* =====================================
+       KEYBOARD SUPPORT
+    ====================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (/^\d$/.test(event.key)) {
+
+                if (
+                    enteredCode.length < 4
+                ) {
+
+                    enteredCode +=
+                        event.key;
+
+                    updateDisplay();
+
+                    if (
+                        enteredCode.length === 4
+                    ) {
+
+                        checkPassword();
+
+                    }
+
+                }
+
+            }
+
+
+            if (
+                event.key === "Backspace"
+            ) {
+
+                enteredCode =
+                    enteredCode.slice(0, -1);
+
+                updateDisplay();
+
+            }
+
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                enteredCode = "";
+
+                updateDisplay();
+
+            }
+
+        }
+    );
+
+
+    updateDisplay();
+
+</script>
+
+</body>
+</html>
